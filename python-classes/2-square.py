@@ -5,6 +5,7 @@ square by: (based on 1-square.py)"""
 
 
 class Square:
+    """Raise Error using conditionals"""
     def __init__(self, size=0):
         if type(size) is int:
             if size < 0:
