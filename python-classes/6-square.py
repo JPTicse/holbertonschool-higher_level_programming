@@ -17,7 +17,7 @@ class Square:
     @property
     def position(self):
         return (self.__position)
-    
+
     @position.setter
     def position(self, value):
         if len(value) != 2 or type(value[0]) != int or type(value[1]) != int:
