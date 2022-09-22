@@ -6,6 +6,7 @@ square by: (based on 1-square.py)"""
 
 class Square:
     """Raise Error using conditionals"""
+
     def __init__(self, size=0):
         self.size = size
     
@@ -18,9 +19,9 @@ class Square:
 
     @size.setter
     def size(self, value):
-        if type(size) is int:
-            if size < 0:
+        if type(value) is int:
+            if value < 0:
                 raise ValueError("size must be >= 0")
-            self.__size = size
+            self.__size = value
         else:
             raise TypeError("size must be an integer")
