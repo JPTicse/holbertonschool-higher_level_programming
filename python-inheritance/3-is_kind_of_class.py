@@ -5,6 +5,7 @@ Module for is_same_class method
 
 
 def is_same_class(obj, a_class):
+    
     """
     Method for comparing object classes
     Args:
