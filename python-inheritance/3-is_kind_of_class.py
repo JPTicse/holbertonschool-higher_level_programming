@@ -5,7 +5,8 @@ Module for is_same_class method
 
 
 def is_same_class(obj, a_class):
-    """Method for comparing object classes
+    """
+    Method for comparing object classes
     Args:
         obj (unknown): object whose type is to be checked.
         a_class (str): class criteria to validate.
