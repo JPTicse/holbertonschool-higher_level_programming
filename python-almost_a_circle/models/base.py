@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """ Module that contains class Base """
 
-from multiprocessing.sharedctypes import Value
-from time import sleep
-
 
 class Base:
     """ Class Base """
@@ -15,4 +12,5 @@ class Base:
             self.id = id
         else:
             Base.__nbobjects += 1
+
             self.id = Base.__nbobjects
