@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """ Module that contains class Base """
 
 from multiprocessing.sharedctypes import Value
