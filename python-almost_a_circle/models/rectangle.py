@@ -84,8 +84,6 @@ class Rectangle(Base):
             print((self.y-1)*"\n")
         for height in range(self.height):
             print(" "*self.x + "#"*self.width)
-            
-        
 
     def __str__(self):
         """ str dunder method """
