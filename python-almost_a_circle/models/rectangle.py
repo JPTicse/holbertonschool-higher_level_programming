@@ -94,9 +94,12 @@ class Rectangle(Base):
 
         return str_rectangle + str_id + str_xy + str_wh
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update method"""
         if args and len(args):
             attributes = ['id', 'width', 'height', 'x', 'y']
             for i in range(len(args)):
                 setattr(self, attributes[i], args[i])
+        else:
+            for k,v in kwargs.items():
+                setattr(self, k, v)
