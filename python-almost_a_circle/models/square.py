@@ -3,7 +3,9 @@
 inheritance of class Rectangle
 """
 
+from multiprocessing.sharedctypes import Value
 from re import S
+from tty import setraw
 from models.rectangle import Rectangle
 
 
@@ -37,9 +39,16 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Update method"""
         if args and len(args):
-            attributes = ['id', 'size', 'x', 'y']
+            attributessquare = ['id', 'size', 'x', 'y']
             for i in range(len(args)):
-                setattr(self, attributes[i], args[i])
-        else:
+                if attributessquare == 'size':
+                    setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
+                else:
+                    setattr(self, attributessquare[i], args[i])
             for k, v in kwargs.items():
-                setattr(self, k, v)
+                if k == 'size':
+                    setattr(self, 'width',v)
+                    setattr(self, 'height',v)
+                else:
+                    setattr(self, k, v)
