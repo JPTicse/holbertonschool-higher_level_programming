@@ -2,6 +2,9 @@
 """ Module that contains class Base """
 
 
+import json
+
+
 class Base:
     """ Class Base """
     __nbobjects = 0
@@ -14,3 +17,10 @@ class Base:
             Base.__nbobjects += 1
 
             self.id = Base.__nbobjects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Convert list to JSON string"""
+        if list_dictionaries is None:
+            return "[]"
+        return json.dumps(list_dictionaries)
