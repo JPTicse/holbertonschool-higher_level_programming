@@ -80,8 +80,12 @@ class Rectangle(Base):
 
     def display(self):
         """ Print the figure in #"""
+        if self.y != 0:
+            print((self.y-1)*"\n")
         for height in range(self.height):
-            print("#"*self.width)
+            print(" "*self.x + "#"*self.width)
+            
+        
 
     def __str__(self):
         """ str dunder method """
