@@ -105,4 +105,5 @@ class Rectangle(Base):
                 setattr(self, k, v)
 
     def to_dictionary(self):
+        """ Method to print dict of a instance"""
         return self.__dict__
