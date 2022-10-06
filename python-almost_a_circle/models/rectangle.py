@@ -106,4 +106,10 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """ Method to print dict of a instance"""
-        return self.__dict__
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        dictionaryfinal = {}
+
+        for key in attributes:
+            dictionaryfinal[key] = getattr(self, key)
+
+        return dictionaryfinal
