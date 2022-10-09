@@ -58,13 +58,19 @@ class Base:
             new = cls(10)
         new.update(**dictionary)
         return new
-
+        
     @classmethod
-    def create(cls, **dictionary):
-        """ Create an instance """
-        if cls.__name__ == "Rectangle":
-            new = cls(10, 10)
-        else:
-            new = cls(10)
-        new.update(**dictionary)
-        return new
+    def load_from_file(cls):
+        """ Returns a list of instances """
+        filename = "{}.json".format(cls.__name__)
+
+        with open(filename, 'r') as f:
+            list_str = f.read()
+
+        list_cls = cls.from_json_string(list_str)
+        list_ins = []
+
+        for index in range(len(list_cls)):
+            list_ins.append(cls.create(**list_cls[index]))
+
+        return list_ins
