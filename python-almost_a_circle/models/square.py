@@ -40,23 +40,17 @@ class Square(Rectangle):
             for i in range(len(args)):
                 if attributessquare == 'size':
                     setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
                 else:
                     setattr(self, attributessquare[i], args[i])
             for k, v in kwargs.items():
                 if k == 'size':
                     setattr(self, 'width', v)
+                    setattr(self, 'height', v)
                 else:
                     setattr(self, k, v)
 
     def to_dictionary(self):
-        """ Method to print dict of a instance"""
-        attributes_square = ['id', 'x', 'size', 'y']
-        dictionaryfinal_square = {}
-
-        for k in attributes_square:
-            if k == 'size':
-                dictionaryfinal_square[k] = getattr(self, 'width')
-            else:
-                dictionaryfinal_square[k] = getattr(self, k)
-
-        return dictionaryfinal_square
+        """Function that returns the dict representation of Square"""
+        dcty = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        return dcty
