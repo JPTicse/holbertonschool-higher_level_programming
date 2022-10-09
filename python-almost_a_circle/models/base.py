@@ -28,11 +28,14 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """ Save object in a file"""
-        filename = "{}.csv".format(cls.__name__)
+        """ Save object in a file """
+        filename = "{}.json".format(cls.__name__)
+        list_dic = []
 
-        if cls.__name__ == "Square":
-            list_keys = ['id', 'size', 'x', 'y']
-        else:
-            list_keys = ['id', 'width', 'height', 'x', 'y']
-        
+        for i in range(len(list_objs)):
+            list_dic.append(list_objs[i].to_dictionary())
+
+        lists = cls.to_json_string(list_dic)
+
+        with open(filename, 'w') as f:
+            f.write(lists)
