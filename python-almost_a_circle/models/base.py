@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Module that contains class Base """
 
-
+from os import path
 from fileinput import filename
 import json
 
@@ -51,26 +51,27 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """ Create an instance """
-        if cls.__name__ == "Rectangle":
-            new = cls(10, 10)
-        else:
-            new = cls(10)
-        new.update(**dictionary)
-        return new
-        
+        if cls.__name__ == 'Square':
+            dummy = cls(3)
+
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(3, 3)
+
+        dummy.update(**dictionary)
+        return dummy
+
     @classmethod
     def load_from_file(cls):
-        """ Returns a list of instances """
-        filename = "{}.json".format(cls.__name__)
+        filename = cls.__name__ + '.json'
 
-        with open(filename, 'r') as f:
-            list_str = f.read()
+        if path.exists(filename) is False:
+            return []
 
-        list_cls = cls.from_json_string(list_str)
-        list_ins = []
+        with open(filename, mode='r', encoding='utf-8') as f:
+            objs = cls.from_json_string(f.read())
+            instances = []
 
-        for index in range(len(list_cls)):
-            list_ins.append(cls.create(**list_cls[index]))
+            for elem in objs:
+                instances.append(cls.create(**elem))
 
-        return list_ins
+            return instances
