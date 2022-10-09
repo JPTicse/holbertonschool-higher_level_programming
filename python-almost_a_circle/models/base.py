@@ -2,6 +2,7 @@
 """ Module that contains class Base """
 
 
+from fileinput import filename
 import json
 
 
@@ -24,3 +25,14 @@ class Base:
         if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ Save object in a file"""
+        filename = "{}.csv".format(cls.__name__)
+
+        if cls.__name__ == "Square":
+            list_keys = ['id', 'size', 'x', 'y']
+        else:
+            list_keys = ['id', 'width', 'height', 'x', 'y']
+        
