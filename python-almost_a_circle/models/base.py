@@ -32,11 +32,12 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         list_dic = []
 
-        if list_objs is not None:
-            for i in range(len(list_objs)):
-                list_dic.append(list_objs[i].to_dictionary())
+        if list_objs is None:
+            print("OK", end="")
+        for i in range(len(list_objs)):
+            list_dic.append(list_objs[i].to_dictionary())
 
-            lists = cls.to_json_string(list_dic)
+        lists = cls.to_json_string(list_dic)
 
-            with open(filename, 'w') as f:
-                f.write(lists)
+        with open(filename, 'w') as f:
+            f.write(lists)
